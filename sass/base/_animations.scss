@@ -1,0 +1,52 @@
+   /* Changes css properties over time  */
+ @keyframes moveInLeft {
+    /* In the beginning, lets hide it and keep it off to the left 100px */
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    /* Put it off to the right a bit */
+    80% {
+        transform: translateX(1rem);
+    }
+
+    /* This is how it looks after all animation is complete */
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+
+@keyframes moveInRight {
+    /* In the beginning, lets hide it and keep it off to the right 100px */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    /* Put it off to the left a bit */
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    /* This is how it looks after all animation is complete */
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+
+/* Move button down */
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        /* Starting up 30px */
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    }
+}

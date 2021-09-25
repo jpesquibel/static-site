@@ -1,0 +1,97 @@
+.form { 
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    &__input {
+        font-size: 1.5rem; 
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent; // prevent the input from jumping on hover
+        width: 90%;
+        display: block;
+        transition: all .3s; //make field underline validation slick!
+
+        &:focus {
+            outline: none; //for accessibility purposes, add a box shadow and border if removing outline
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+
+            //will show orange when invalid
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;            
+            }            
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s; //fall down effect
+    }
+
+    //adjacent sibling selector (underneath input) +
+    &__input:placeholder-shown + &__label {
+        opacity: 0; //needed to animate
+        visibility: hidden;
+        transform: translateY(-4rem); 
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 5rem;
+    }
+
+    &__radio-button {
+        //styling the border
+        height: 3rem;
+        width: 3rem;
+        border: solid 5px $color-primary;
+        border-radius: 50%; //round
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -.4rem;
+
+        // fill the circle when selected (green dot in middle)
+        &::after {
+            height: 1.3rem;
+            width: 1.3rem;
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); //centering
+            background-color: $color-primary;
+            opacity: 0; //hide the 'filled' circle style
+        }
+    }
+    // when radio button is clicked, show the 'filled' circle style
+    // get direct sibling and it's child __radio-button 'after' selected
+    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+        opacity: 1;
+        transition: all .2s;
+    }
+}

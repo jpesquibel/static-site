@@ -1,0 +1,19 @@
+/* universal selector / global reset (all elements) 
+   make sure all the pseudo elements also gets this behavior */
+   *,
+   *::after,
+   *::before
+    {
+       margin: 0;
+       padding: 0;
+       box-sizing: inherit; /* forcing inharitance from body (border-box) */
+   }
+   
+   html {
+       /* 100% = 16px default. Changing to % doesn't override the user's browser font settings */
+       font-size: 62.5%; /* changing from 16px to 10px */
+   }
+   
+   body {
+       box-sizing: border-box;
+   }

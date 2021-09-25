@@ -1,0 +1,69 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem; 
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    //shaping the sides (remember that this tweaks the whole div. Do the opposite for each child
+    transform: skewX(-12deg);
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        // circles!! radious is 50% of width and height. MUST have width/hieht for this to work. Shapes
+        // the content, not the image itself (clip-path does that)
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        //shapes the div to cirlce (like the polygon we did)
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        //gives the spacing it needs
+        transform: translateX(-3rem) skewX(12deg); // skewing it back the other direction
+        position: relative;
+    }
+
+    &__img {
+        //img is inside a shape
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+
+    &__text {
+        transform: skewX(12deg); // skewing it back the other direction
+    }    
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0); // positions at the bottom for rising affect
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0; //hidden until hovered over
+        transition: all .5s;
+        //fix the glitch!
+        backface-visibility: hidden;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform:  translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        //Let's push the image back and blur/darken it
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "landing",
+  "main": "index.js",
+  "scripts": {
+    "browserSync": "gulp browserSync",
+    "start": "gulp start",
+    "watch": "gulp watch",
+    "sass": "gulp sass",
+    "image": "gulp image",
+    "minifyHtml": "gulp minifyHtml",
+    "moveCssFiles": "gulp moveCssFiles",
+    "compressJs": "gulp compressJs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^5.0.0",
+    "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-image": "^6.2.1",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.42.1"
+  }
+}
